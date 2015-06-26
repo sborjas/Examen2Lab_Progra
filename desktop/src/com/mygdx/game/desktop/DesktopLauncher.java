@@ -6,7 +6,8 @@ import com.mygdx.game.AIrHockey;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
-		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		new LwjglApplication(new AIrHockey(), config);
+		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
+	
+		new LwjglApplication(new AIrHockey(), cfg);
 	}
 }
