@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 
 
 
@@ -18,6 +19,7 @@ public class AIrHockey extends ApplicationAdapter {
     Texture blue;
     Texture blue1;
     Music music;
+    Sound effect;
     BitmapFont arial;
 
     //lineas arriba
@@ -395,6 +397,9 @@ public class AIrHockey extends ApplicationAdapter {
         int partida = 0;
 
         music = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"));
+        effect = Gdx.audio.newSound(Gdx.files.internal("effect.mp3"));
+
+
         music.play();
         arial = new BitmapFont();
 	}
@@ -617,8 +622,8 @@ public class AIrHockey extends ApplicationAdapter {
             x=590;
             y=435;
 
-
             System.out.println("Player1 chocaste con el limite...regresas al inicio muajajajaj");
+            effect.play(2.0f);
         }
 
 
