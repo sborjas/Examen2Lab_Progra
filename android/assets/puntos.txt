@@ -1,0 +1,2 @@
+Player 1 gano en partida: 1 
+Player 2 gano en partida: 2 

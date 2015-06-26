@@ -3,10 +3,12 @@ package com.mygdx.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.audio.Music;
+
 
 
 
@@ -196,9 +198,14 @@ public class AIrHockey extends ApplicationAdapter {
     int y1=0;
     int x1=0;
 
+    int partida;
+
+    FileHandle file;
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+        file = Gdx.files.local("puntos.txt");
 
 		fondo = new Texture("fondo.jpg");
         blue  = new Texture("blue.png");
@@ -384,6 +391,8 @@ public class AIrHockey extends ApplicationAdapter {
 
         int y1= 0;
         int x1= 0;
+
+        int partida = 0;
 
         music = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"));
         music.play();
@@ -607,7 +616,9 @@ public class AIrHockey extends ApplicationAdapter {
         if((x<0 || x>630) || (y<0 || y>480)) {
             x=590;
             y=435;
-            System.out.println("Player1 chocaste con el limite...regresas al inicio muajajajaj"); 
+
+
+            System.out.println("Player1 chocaste con el limite...regresas al inicio muajajajaj");
         }
 
 
@@ -615,6 +626,9 @@ public class AIrHockey extends ApplicationAdapter {
             System.out.println("Player 1 gano!!!");
             x1=0;
             y1=0;
+
+            partida++;
+            file.writeString("Player 1 gano en partida: "+partida+" \r\n", true);
 
             y =435;
             x=590;
@@ -683,6 +697,8 @@ public class AIrHockey extends ApplicationAdapter {
 
             x1=0;
             y1=0;
+            partida++;
+            file.writeString("Player 2 gano en partida: "+partida+" \r\n", true);
 
             y =435;
             x=590;
